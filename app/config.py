@@ -11,6 +11,9 @@ class Config:
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    SECRET_KEY = os.getenv("SECRET_KEY", "").strip()
+    JWT_EXP_MINUTES = int(os.getenv("JWT_EXP_MINUTES", "15").strip())
+
     _db_user = os.getenv("DB_USER", "root").strip()
     _db_password = os.getenv("DB_PASSWORD", "").strip()
     _db_host = os.getenv("DB_HOST", "localhost").strip()
